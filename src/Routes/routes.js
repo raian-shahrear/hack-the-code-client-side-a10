@@ -34,20 +34,16 @@ const routes = createBrowserRouter([
         loader: () => fetch('http://localhost:5000/courses')
       },
       {
-        path: '/faq',
-        element: <FAQ />
-      },
-      {
-        path: '/blog',
-        element: <Blog />
-      },
-      {
         path: '/login',
         element: <Login />
       },
       {
         path: '/signup',
         element: <SignUp />
+      },
+      {
+        path: '/faq',
+        element: <FAQ />
       },
       {
         path: '/categories/courses/:id',
@@ -65,7 +61,11 @@ const routes = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/category/course-details/${params.id}`)
       }
     ]
-  }
+  },
+  {
+    path: '/blog',
+    element: <Blog />
+  },
 ])
 
 export default routes;
