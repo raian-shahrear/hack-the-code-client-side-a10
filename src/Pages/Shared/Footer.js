@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaSnowflake, FaGithub, FaTwitter, FaFacebookF, FaYoutube } from "react-icons/fa";
+import { FaSnowflake, FaGithub, FaTwitter, FaFacebookF, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 import { GrWindows } from "react-icons/gr";
 
 const Footer = () => {
@@ -24,8 +24,8 @@ const Footer = () => {
             <a href="https://github.com/login" target="_break"><FaGithub className="text-2xl" /></a>
             <a href="https://twitter.com/login" target="_break"><FaTwitter className="text-2xl" /></a>
             <a href="https://www.facebook.com/login/" target="_break"><FaFacebookF className="text-2xl" /></a>
-            <a href="https://www.youtube.com/account" target="_break"><FaYoutube className="text-2xl" /></a>
-            <a href="https://account.microsoft.com/account?lang=en-gb" target="_break"><GrWindows className="text-2xl" /></a>
+            <a href="https://www.youtube.com" target="_break"><FaYoutube className="text-2xl" /></a>
+            <a href="https://www.linkedin.com/login" target="_break"><FaLinkedinIn className="text-2xl" /></a>
           </div>
         </div>
       </section>

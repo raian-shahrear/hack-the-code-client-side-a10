@@ -17,7 +17,7 @@ const FAQ = () => {
             </div>
             <div>
               <h3 className="font-semibold">Is there any course that's conducted offline?</h3>
-              <p className="mt-1 text-gray-400">Our Students are from all over the world, as well as our Instructors. So fare, we haven't get any complain about our online course because we try to keep updating our course's module and it's video all the time. Thus, we hope you will have better experience as always.</p>
+              <p className="mt-1 text-gray-400">Our Students are from all over the world, as well as our Instructors. So far, we haven't get any complain about our online course because we try to keep updating our course's module and it's video all the time. Thus, we hope you will have better experience as always.</p>
             </div>
             <div>
               <h3 className="font-semibold">Do I get a certificate after completing any course?</h3>
