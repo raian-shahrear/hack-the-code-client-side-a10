@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MdAcUnit } from "react-icons/md";
+import { FaSnowflake } from "react-icons/fa";
 import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
@@ -13,7 +13,7 @@ const NavBar = () => {
             href="/"
             className="inline-flex items-center text-4xl text-yellow-500"
           >
-            <MdAcUnit />
+            <FaSnowflake />
             <span className="ml-2 text-2xl font-bold tracking-wide text-sky-500 uppercase custom-logo">
               Hack The Code
             </span>
@@ -51,22 +51,26 @@ const NavBar = () => {
                 Blog
               </NavLink>
             </li>
-            <li>
+            {/* { */}
+              <li>
               <NavLink
                 to="/login"
-                className={({isActive}) => isActive ? "border-2 border-transparent py-1 px-3 rounded-md font-medium tracking-wide text-gray-900 bg-white" : "border-2 border-white bg-transparent py-1 px-3 rounded-md font-medium tracking-wide text-white transition-colors duration-200 hover:text-gray-900 hover:bg-white hover:border-transparent"}
+                onClick={() => setIsMenuOpen(false)}
+                className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-green-500" : "border-2 border-green-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-green-500 transition-colors duration-200 hover:text-white hover:bg-green-500 hover:border-transparent"}
               >
-                Log In
+                <button className='w-24'>Log In</button>
               </NavLink>
-            </li>
-            <li>
-              <button
-                className="border-2 border-red-500 bg-transparent py-1 px-3 rounded-md font-medium tracking-wide text-red-500 transition-colors duration-200 hover:text-white hover:bg-red-500 hover:border-transparent"
-              >
-                Sign Out
-              </button>
-            </li>
+              </li>
+              <li>
+                <button
+                  className="border-2 border-red-500 bg-transparent py-1 w-24 rounded-md font-medium tracking-wide text-red-500 transition-colors duration-200 hover:text-white hover:bg-red-500 hover:border-transparent"
+                >
+                  Sign Out
+                </button>
+              </li>
+            {/* } */}
           </ul>
+
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"
@@ -74,7 +78,7 @@ const NavBar = () => {
               className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
               onClick={() => setIsMenuOpen(true)}
             >
-              <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+              <svg className="w-5 text-white" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
                   d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
@@ -96,27 +100,11 @@ const NavBar = () => {
                     <div>
                       <a
                         href="/"
-                        aria-label="Company"
-                        title="Company"
-                        className="inline-flex items-center"
+                        className="inline-flex items-center text-4xl text-yellow-500"
                       >
-                        <svg
-                          className="w-8 text-deep-purple-accent-400"
-                          viewBox="0 0 24 24"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeMiterlimit="10"
-                          stroke="currentColor"
-                          fill="none"
-                        >
-                          <rect x="3" y="1" width="7" height="12" />
-                          <rect x="3" y="17" width="7" height="6" />
-                          <rect x="14" y="1" width="7" height="6" />
-                          <rect x="14" y="11" width="7" height="12" />
-                        </svg>
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          Company
+                        <FaSnowflake />
+                        <span className="ml-2 text-2xl font-bold tracking-wide text-sky-500 uppercase custom-logo">
+                          Hack The Code
                         </span>
                       </a>
                     </div>
@@ -139,54 +127,57 @@ const NavBar = () => {
                   <nav>
                     <ul className="space-y-4">
                       <li>
-                        <a
-                          href="/"
-                          aria-label="Our product"
-                          title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        <NavLink
+                          to="/home"
+                          onClick={() => setIsMenuOpen(false)}
+                          className={({isActive}) => isActive ? "font-medium tracking-wide text-yellow-500" : "font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-yellow-500"}
                         >
-                          Product
-                        </a>
+                          Home
+                        </NavLink>
                       </li>
                       <li>
-                        <a
-                          href="/"
-                          aria-label="Our product"
-                          title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        <NavLink
+                          to="/courses"
+                          onClick={() => setIsMenuOpen(false)}
+                          className={({isActive}) => isActive ? "font-medium tracking-wide text-yellow-500" : "font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-yellow-500"}
                         >
-                          Features
-                        </a>
+                          Courses
+                        </NavLink>
                       </li>
                       <li>
-                        <a
-                          href="/"
-                          aria-label="Product pricing"
-                          title="Product pricing"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        <NavLink
+                          to="/faq"
+                          onClick={() => setIsMenuOpen(false)}
+                          className={({isActive}) => isActive ? "font-medium tracking-wide text-yellow-500" : "font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-yellow-500"}
                         >
-                          Pricing
-                        </a>
+                          FAQ
+                        </NavLink>
                       </li>
                       <li>
-                        <a
-                          href="/"
-                          aria-label="About us"
-                          title="About us"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          About us
-                        </a>
+                      <NavLink
+                        to="/blog"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={({isActive}) => isActive ? "font-medium tracking-wide text-yellow-500" : "font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-yellow-500"}
+                      >
+                        Blog
+                      </NavLink>
                       </li>
                       <li>
-                        <a
-                          href="/"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
+                        <NavLink
+                          to="/login"
+                          onClick={() => setIsMenuOpen(false)}
+                          className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-green-500" : "border-2 border-green-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-green-500 transition-colors duration-200 hover:text-white hover:bg-green-500 hover:border-transparent"}
                         >
-                          Sign up
-                        </a>
+                          <button className='w-24'>Log In</button>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <button
+                          onClick={() => setIsMenuOpen(false)}
+                          className="border-2 border-red-500 bg-transparent py-1 w-24 rounded-md font-medium tracking-wide text-red-500 transition-colors duration-200 hover:text-white hover:bg-red-500 hover:border-transparent"
+                        >
+                          Sign Out
+                        </button>
                       </li>
                     </ul>
                   </nav>
