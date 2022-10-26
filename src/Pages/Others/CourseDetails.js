@@ -42,7 +42,7 @@ const CourseDetails = () => {
               </p>
             </div>
             <div className='mt-10'>
-              <Link>
+              <Link to={`/course/premium-access/${courseId}`}>
                 <button className='bg-yellow-500 py-2 px-4 rounded-md text-blue-900 font-semibold hover:bg-yellow-600'>
                   <p>Get Premium Access</p>
                   <p>{price}</p>

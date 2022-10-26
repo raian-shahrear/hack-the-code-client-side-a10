@@ -8,7 +8,9 @@ import Blog from "../Pages/Blog"
 import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import CoursesByCategory from '../Pages/Others/CoursesByCategory';
-import CourseDetails from '../Pages/Others/CourseDetails'
+import CourseDetails from '../Pages/Others/CourseDetails';
+import PremiumAccess from "../Pages/Others/PremiumAccess";
+
 
 const routes = createBrowserRouter([
   {
@@ -55,6 +57,11 @@ const routes = createBrowserRouter([
       {
         path: '/category/course-details/:id',
         element: <CourseDetails />,
+        loader: ({params}) => fetch(`http://localhost:5000/category/course-details/${params.id}`)
+      },
+      {
+        path: '/course/premium-access/:id',
+        element: <PremiumAccess />,
         loader: ({params}) => fetch(`http://localhost:5000/category/course-details/${params.id}`)
       }
     ]
