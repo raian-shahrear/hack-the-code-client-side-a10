@@ -11,8 +11,8 @@ const CourseDetails = () => {
   const {courseId, title, courseOverview, details, difficulty, enrolled, image, instructor, language, price, ratings, totalHour} = detailsOfCourse;
   return (
     <div>
-      <div className='bg-blue-900 h-auto lg:h-96'>
-        <section className='text-white w-11/12 mx-auto py-12 flex flex-col-reverse gap-10 lg:gap-2 lg:grid grid-cols-12'>
+      <div className='bg-blue-900 py-10 lg:h-[400px]'>
+        <section className='text-white w-11/12 mx-auto flex flex-col-reverse gap-10 lg:gap-2 lg:grid grid-cols-12'>
           <div className='col-span-8'>
             <div className='flex items-start gap-3'>
               <button className='hover:text-white text-yellow-500'><VscFilePdf className='text-4xl' title='Download PDF' /></button>

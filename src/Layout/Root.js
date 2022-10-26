@@ -1,7 +1,8 @@
 import React from 'react';
 import {Outlet} from "react-router-dom";
-import NavBar from "../Pages/Others/NavBar";
-import SideBar from '../Pages/Others/SideBar';
+import Footer from '../Pages/Shared/Footer';
+import NavBar from "../Pages/Shared/NavBar";
+import SideBar from '../Pages/Shared/SideBar';
 
 const Root = () => {
   return (
@@ -15,7 +16,7 @@ const Root = () => {
           <Outlet />
         </section>
       </div>
-      <h1 className='text-center text-white  py-16 bg-gray-900'>Footer Area</h1>
+      <Footer />
     </div>
   );
 };
