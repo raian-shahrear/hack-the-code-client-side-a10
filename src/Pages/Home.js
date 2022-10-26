@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import headerImg from '../Resources/Header.jpg'
 import DisplayCourses from './Others/DisplayCourses';
 
 const Home = () => {
   const topCourses = useLoaderData();
+  const [state, setState] = useState('');
   console.log(topCourses)
-
   return (
     <div>
       <header className=''>
@@ -14,10 +14,10 @@ const Home = () => {
       </header>
 
       <div className='w-11/12 mx-auto my-20'>
-        <h1 className='text-4xl text-white font-semibold mb-6'>Top Enrolled Courses</h1>
+        <h1 className='text-4xl text-white font-semibold mb-10'>{state}</h1>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
           {
-            topCourses.map(course => <DisplayCourses key={course.id} course={course} />)
+            topCourses.map(course => <DisplayCourses key={course.id} course={course} setState={setState} />)
           }
         </div>
       </div>

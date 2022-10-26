@@ -21,7 +21,7 @@ const NavBar = () => {
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
               <NavLink
-                to="/home"
+                to="/"
                 className={({isActive}) => isActive ? "font-medium tracking-wide text-yellow-500" : "font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-yellow-500"}
               >
                 Home
@@ -128,7 +128,7 @@ const NavBar = () => {
                     <ul className="space-y-4">
                       <li>
                         <NavLink
-                          to="/home"
+                          to="/"
                           onClick={() => setIsMenuOpen(false)}
                           className={({isActive}) => isActive ? "font-medium tracking-wide text-yellow-500" : "font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-yellow-500"}
                         >
