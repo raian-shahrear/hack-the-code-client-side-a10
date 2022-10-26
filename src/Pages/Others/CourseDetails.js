@@ -5,6 +5,7 @@ import { BiWorld } from "react-icons/bi";
 import { VscFilePdf } from "react-icons/vsc";
 import { TbCertificate, TbWorld } from "react-icons/tb";
 import { AiOutlineClockCircle } from "react-icons/ai";
+import { BsBarChartLine } from "react-icons/bs";
 
 const CourseDetails = () => {
   const detailsOfCourse = useLoaderData();
@@ -69,7 +70,7 @@ const CourseDetails = () => {
             <ul className='bg-gray-900 text-white text-lg p-10'>
               <li className='flex items-center gap-2 mb-4'><FaRegCalendarAlt/> Flexible deadlines</li>
               <li className='flex items-center gap-2 mb-4'><TbCertificate/> Shareable Certificate</li>
-              <li className='flex items-center gap-2 mb-4'><FaRegCalendarAlt/> {difficulty} Level</li>
+              <li className='flex items-center gap-2 mb-4'><BsBarChartLine/> {difficulty} Level</li>
               <li className='flex items-center gap-2 mb-4'><TbWorld/> 100% online</li>
               <li className='flex items-center gap-2 mb-4'><FaTeamspeak/> {language}</li>
               <li className='flex items-center gap-2 mb-4'><AiOutlineClockCircle/> {totalHour} video</li>

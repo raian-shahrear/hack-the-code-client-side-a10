@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { FaSnowflake } from "react-icons/fa";
+import { FaSnowflake, FaToggleOff, FaToggleOn } from "react-icons/fa";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [darkLight, setDarkLight] = useState(true);
 
   return (
     <div className="bg-gray-900">
@@ -19,6 +21,21 @@ const NavBar = () => {
             </span>
           </a>
           <ul className="flex items-center hidden space-x-8 lg:flex">
+            <li onClick={() => setDarkLight(!darkLight)} className='text-2xl text-white cursor-pointer'>
+              {
+                darkLight ? 
+                <div className='flex items-center gap-2' title='Dark Mode'>
+                  <BsFillMoonFill className='text-yellow-100'/>
+                  <FaToggleOff/>
+                </div>
+                :
+                <div className='flex items-center gap-2' title='Light Mode'>
+                  <BsFillSunFill className='text-yellow-500'/>
+                  <FaToggleOn/>
+                </div>
+              }
+              
+            </li>
             <li>
               <NavLink
                 to="/home"
@@ -95,7 +112,7 @@ const NavBar = () => {
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-white border rounded shadow-sm">
+                <div className="p-5 bg-gray-900 border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <a
@@ -107,6 +124,21 @@ const NavBar = () => {
                           Hack The Code
                         </span>
                       </a>
+                    </div>
+                    <div onClick={() => setDarkLight(!darkLight)} className='text-2xl text-white cursor-pointer'>
+                      {
+                        darkLight ? 
+                        <div className='flex items-center gap-2' title='Dark Mode'>
+                          <BsFillMoonFill className='text-yellow-100'/>
+                          <FaToggleOff/>
+                        </div>
+                        :
+                        <div className='flex items-center gap-2' title='Light Mode'>
+                          <BsFillSunFill className='text-yellow-500'/>
+                          <FaToggleOn/>
+                        </div>
+                      }
+                      
                     </div>
                     <div>
                       <button
