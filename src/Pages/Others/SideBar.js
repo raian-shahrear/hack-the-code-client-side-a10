@@ -12,13 +12,7 @@ const SideBar = () => {
     .then(data => setCategories(data))
   },[])
 
-  return (
-    <div>
-      {
-        categories.map(category => <li key={category.categoryId}><Link to={`/categories/courses/${category.categoryId}`}>{category.categoryName}</Link></li>)
-      }
-    </div>
-  );
+  
 };
 
 export default SideBar;
