@@ -6,7 +6,6 @@ import DisplayCourses from './Others/DisplayCourses';
 const Home = () => {
   const topCourses = useLoaderData();
   const [state, setState] = useState('');
-  console.log(topCourses)
   return (
     <div>
       <header className=''>
