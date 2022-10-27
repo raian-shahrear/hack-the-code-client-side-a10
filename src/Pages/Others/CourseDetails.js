@@ -20,9 +20,9 @@ const CourseDetails = () => {
         <div className='bg-blue-900 py-10 lg:h-[400px]'>
           <section className='text-white w-11/12 mx-auto flex flex-col-reverse gap-10 lg:gap-2 lg:grid grid-cols-12'>
             <div className='col-span-8'>
-              <div className='flex gap-2'>
+              <div className='flex items-start gap-3'>
                 <Pdf targetRef={ref} filename="course-details.pdf" x={0} y={0} scale={0.57}>
-                  {({ toPdf }) => <button onClick={toPdf} className='hover:text-white text-yellow-500'><VscFilePdf className='text-4xl' title='Download PDF' /></button>}
+                  {({ toPdf }) => <button onClick={toPdf} className='hover:text-white text-red-600 p-1 shadow-xl shadow-gray-900'><VscFilePdf className='text-4xl' title='Download PDF' /></button>}
                 </Pdf>
                 <h1 className='text-4xl font-semibold'>{title}</h1>
               </div>
