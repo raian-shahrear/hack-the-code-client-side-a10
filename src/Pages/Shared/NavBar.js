@@ -97,7 +97,7 @@ const NavBar = () => {
                   </button>
                 </li>
                 <li>
-                  <Link className='flex items-center gap-3 opacity-90 hover:opacity-100'>
+                  <Link to="/user-profile" className='flex items-center gap-3 opacity-90 hover:opacity-100'>
                     {
                       <div className="tooltip tooltip-bottom" data-tip={user?.displayName && user?.displayName}>
                         <>{user?.photoURL && <img src={user?.photoURL} alt="userImg" className='w-14 rounded-full' />}</>
@@ -181,7 +181,7 @@ const NavBar = () => {
                       {
                         user?.uid && 
                         <li>
-                          <Link className='flex items-center gap-3 opacity-90 hover:opacity-100'>
+                          <Link to="/user-profile" onClick={() => setIsMenuOpen(false)} className='flex items-center gap-3 opacity-90 hover:opacity-100'>
                             {
                               <div className="tooltip tooltip-right" data-tip={user?.displayName && user?.displayName}>
                                 <>{user?.photoURL && <img src={user?.photoURL} alt="userImg" className='w-14 rounded-full' />}</>

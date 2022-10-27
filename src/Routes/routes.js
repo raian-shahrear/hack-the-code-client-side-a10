@@ -10,6 +10,8 @@ import SignUp from '../Pages/SignUp';
 import CoursesByCategory from '../Pages/Others/CoursesByCategory';
 import CourseDetails from '../Pages/Others/CourseDetails';
 import PremiumAccess from "../Pages/Others/PremiumAccess";
+import PrivateRoutes from "./PrivateRoutes";
+import UserProfile from "../Pages/Others/UserProfile";
 
 
 const routes = createBrowserRouter([
@@ -57,8 +59,12 @@ const routes = createBrowserRouter([
       },
       {
         path: '/course/premium-access/:id',
-        element: <PremiumAccess />,
+        element: <PrivateRoutes><PremiumAccess /></PrivateRoutes>,
         loader: ({params}) => fetch(`http://localhost:5000/category/course-details/${params.id}`)
+      },
+      {
+        path: '/user-profile',
+        element: <UserProfile />
       }
     ]
   },

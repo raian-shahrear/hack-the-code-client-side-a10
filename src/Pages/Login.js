@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF, FaGithub } from "react-icons/fa";
 import { useContext } from 'react';
@@ -12,6 +12,9 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
 
   // Login account
   const handleSubmit = (event) => {
@@ -26,7 +29,7 @@ const Login = () => {
       console.log(user);
       form.reset();
       setErrorMessage('');
-      navigate('/');
+      navigate(from, {replace: true});
       toast.success("Successfully logged in!!!", {autoClose: 1500});
     })
     .catch(err => {
@@ -57,7 +60,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       setErrorMessage('');
-      navigate('/');
+      navigate(from, {replace: true});
       toast.success("Successfully logged in through Google!!!", {autoClose: 1500});
     })
     .catch(err => {
@@ -72,7 +75,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       setErrorMessage('');
-      navigate('/');
+      navigate(from, {replace: true});
       toast.success("Successfully logged in through Facebook!!!", {autoClose: 1500});
     })
     .catch(err => {
@@ -87,7 +90,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       setErrorMessage('');
-      navigate('/');
+      navigate(from, {replace: true});
       toast.success("Successfully logged in through GitHub!!!", {autoClose: 1500});
     })
     .catch(err => {
