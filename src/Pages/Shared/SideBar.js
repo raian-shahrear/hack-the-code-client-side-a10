@@ -15,7 +15,7 @@ const SideBar = () => {
   return (
     <div className='my-10 px-8 flex flex-col lg:sticky top-5'>
       <section>
-        <h2 className='text-2xl font-semibold text-blue-700 mb-2'>Course Categories</h2>
+        <h2 className='text-3xl font-semibold text-slate-100 mb-6 flex flex-wrap'><p className='bg-gray-500 p-1 pl-2'>Course</p><p className='bg-orange-500 p-1 pr-2'>Categories</p></h2>
         <div className='grid md:grid-cols-3 lg:block'>
           {
             categories.map(category => <li key={category.categoryId} className="list-none">
@@ -31,7 +31,7 @@ const SideBar = () => {
       </section>
       <hr className='border-1 border-gray-500 my-10' />
       <section>
-        <h2 className='text-2xl font-semibold text-blue-700 mb-2'>Register Account</h2>
+      <h2 className='text-3xl font-semibold text-slate-100 mb-8 flex flex-wrap'><p className='bg-gray-500 p-1 pl-2'>Quick</p><p className='bg-orange-500 p-1 pr-2'>Registration</p></h2>
         <div className='grid md:grid-cols-3 lg:flex flex-col gap-4'>
           <Link><button className='bg-gray-900 hover:bg-gray-800 text-slate-100 text-lg py-2 w-full rounded-md grid lg:grid grid-cols-2 items-center md:flex justify-center gap-4'><p className='justify-self-end'><FaGoogle/></p> <p className='justify-self-start'>Google</p></button></Link>
           <Link><button className='bg-gray-900 hover:bg-gray-800 text-slate-100 text-lg py-2 w-full rounded-md grid lg:grid grid-cols-2 items-center md:flex justify-center gap-4'><p className='justify-self-end'><FaGithub/></p> <p className='justify-self-start'>GitHub</p></button></Link>
