@@ -5,7 +5,7 @@ import { FaFacebookF, FaGithub } from "react-icons/fa";
 import { useContext } from 'react';
 import { UserContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
   const {createUser, updateUserInfo, verifyEmail, googleUser, githubUser, facebookUser} = useContext(UserContext);
@@ -55,7 +55,7 @@ const SignUp = () => {
       verifyUserEmail();
       setErrorMessage('');
       navigate('/');
-      toast.success("Account has been registered successfully!!!", {autoClose: 1500})
+      toast.success("Account has been registered successfully!!!", {autoClose: 1500});
     })
     .catch(err => {
       console.error(err);
