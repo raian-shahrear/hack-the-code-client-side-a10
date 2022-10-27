@@ -8,7 +8,7 @@ const Root = () => {
   return (
     <div>
       <NavBar/>
-      <div className='grid grid-cols-12'>
+      <div className='flex flex-col lg:grid grid-cols-12'>
         <section className='col-span-3 bg-yellow-500'>
           <SideBar />
         </section>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { FaCode } from "react-icons/fa";
+import { Link, NavLink } from 'react-router-dom';
+import { FaCode, FaFacebookF, FaGoogle, FaGithub } from "react-icons/fa";
 
 const SideBar = () => {
   const [categories, setCategories] = useState([]);
@@ -13,22 +13,31 @@ const SideBar = () => {
   },[])
 
   return (
-    <div className='my-6 px-8'>
-      <h2 className='text-2xl font-semibold text-blue-500 mb-2'>Course Categories</h2>
-      {
-        categories.map(category => <li key={category.categoryId} className="list-none">
-          <NavLink 
-          to={`/categories/courses/${category.categoryId}`} 
-          className={({isActive}) => isActive ? "font-semibold text-lg text-gray-900 flex items-center gap-4" : " font-semibold text-lg text-gray-600 flex items-center gap-4"}>
-            <FaCode />
-            <p>{category.categoryName}</p>
-          </NavLink>
-          </li>)
-      }
+    <div className='my-10 px-8 flex flex-col lg:sticky top-5'>
+      <section>
+        <h2 className='text-2xl font-semibold text-blue-700 mb-2'>Course Categories</h2>
+        <div className='grid md:grid-cols-3 lg:block'>
+          {
+            categories.map(category => <li key={category.categoryId} className="list-none">
+              <NavLink 
+              to={`/categories/courses/${category.categoryId}`} 
+              className={({isActive}) => isActive ? "font-semibold text-lg text-gray-900 flex items-center gap-4" : " font-semibold text-lg text-gray-600 flex items-center gap-4"}>
+                <FaCode />
+                <p>{category.categoryName}</p>
+              </NavLink>
+              </li>)
+          }
+        </div>
+      </section>
       <hr className='border-1 border-gray-500 my-10' />
-      <div>
-
-      </div>
+      <section>
+        <h2 className='text-2xl font-semibold text-blue-700 mb-2'>Register Account</h2>
+        <div className='grid md:grid-cols-3 lg:flex flex-col gap-4'>
+          <Link><button className='bg-gray-900 hover:bg-gray-800 text-slate-100 text-lg py-2 w-full rounded-md grid lg:grid grid-cols-2 items-center md:flex justify-center gap-4'><p className='justify-self-end'><FaGoogle/></p> <p className='justify-self-start'>Google</p></button></Link>
+          <Link><button className='bg-gray-900 hover:bg-gray-800 text-slate-100 text-lg py-2 w-full rounded-md grid lg:grid grid-cols-2 items-center md:flex justify-center gap-4'><p className='justify-self-end'><FaGithub/></p> <p className='justify-self-start'>GitHub</p></button></Link>
+          <Link><button className='bg-gray-900 hover:bg-gray-800 text-slate-100 text-lg py-2 w-full rounded-md grid lg:grid grid-cols-2 items-center md:flex justify-center gap-4'><p className='justify-self-end'><FaFacebookF/></p> <p className='justify-self-start'>Facebook</p></button></Link>
+        </div>
+      </section>
     </div>
   );
 };
