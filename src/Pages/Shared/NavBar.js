@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { FaSnowflake, FaToggleOff, FaToggleOn } from "react-icons/fa";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import { useContext } from 'react';
+import { UserContext } from '../../Contexts/AuthContext';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [darkLight, setDarkLight] = useState(true);
+  const {user, signOutUser} = useContext(UserContext);
 
   return (
     <div className="bg-gray-900">
@@ -67,24 +72,41 @@ const NavBar = () => {
                 Blog
               </NavLink>
             </li>
-            {/* { */}
+            {
+              !user?.uid ? 
               <li>
-              <NavLink
-                to="/login"
-                onClick={() => setIsMenuOpen(false)}
-                className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-yellow-600" : "border-2 border-sky-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-white hover:bg-yellow-600 hover:border-transparent"}
-              >
-                <button className='w-24'>Log In</button>
-              </NavLink>
-              </li>
-              <li>
-                <button
-                  className="border-2 border-red-500 bg-transparent py-1 w-24 rounded-md font-medium tracking-wide text-red-500 transition-colors duration-200 hover:text-white hover:bg-red-500 hover:border-transparent"
+                <NavLink
+                  to="/login"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-yellow-600" : "border-2 border-sky-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-white hover:bg-yellow-600 hover:border-transparent"}
                 >
-                  Sign Out
-                </button>
+                  <button className='w-24'>Log In</button>
+                </NavLink>
               </li>
-            {/* } */}
+              :
+              <>
+                <li>
+                  <button
+                    onClick={() => {
+                      signOutUser();
+                      toast.warning("Sign Out Successfully!!!", {autoClose: 1500})
+                    }}
+                    className="border-2 border-red-500 bg-transparent py-1 w-24 rounded-md font-medium tracking-wide text-red-500 transition-colors duration-200 hover:text-white hover:bg-red-500 hover:border-transparent"
+                  >
+                    Sign Out
+                  </button>
+                </li>
+                <li>
+                  <Link className='flex items-center gap-3 opacity-90 hover:opacity-100'>
+                    {
+                      <div className="tooltip tooltip-bottom" data-tip={user?.displayName && user?.displayName}>
+                        <>{user?.photoURL && <img src={user?.photoURL} alt="userImg" className='w-14 rounded-full' />}</>
+                      </div>
+                    }
+                  </Link>
+                </li>
+              </>
+            } 
           </ul>
 
           <div className="lg:hidden">
@@ -156,6 +178,19 @@ const NavBar = () => {
                   </div>
                   <nav>
                     <ul className="space-y-4">
+                      {
+                        user?.uid && 
+                        <li>
+                          <Link className='flex items-center gap-3 opacity-90 hover:opacity-100'>
+                            {
+                              <div className="tooltip tooltip-right" data-tip={user?.displayName && user?.displayName}>
+                                <>{user?.photoURL && <img src={user?.photoURL} alt="userImg" className='w-14 rounded-full' />}</>
+                              </div>
+                            }
+                          </Link>
+                        </li>
+                      }
+                      
                       <li>
                         <NavLink
                           to="/home"
@@ -192,23 +227,33 @@ const NavBar = () => {
                         Blog
                       </NavLink>
                       </li>
-                      <li>
-                        <NavLink
-                          to="/login"
-                          onClick={() => setIsMenuOpen(false)}
-                          className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-yellow-600" : "border-2 border-sky-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-white hover:bg-yellow-600 hover:border-transparent"}
-                        >
-                          <button className='w-24'>Log In</button>
-                        </NavLink>
-                      </li>
-                      <li>
-                        <button
-                          onClick={() => setIsMenuOpen(false)}
-                          className="border-2 border-red-500 bg-transparent py-1 w-24 rounded-md font-medium tracking-wide text-red-500 transition-colors duration-200 hover:text-white hover:bg-red-500 hover:border-transparent"
-                        >
-                          Sign Out
-                        </button>
-                      </li>
+                      {
+                        !user?.uid ?
+                        <li>
+                          <NavLink
+                            to="/login"
+                            onClick={() => setIsMenuOpen(false)}
+                            className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-yellow-600" : "border-2 border-sky-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-white hover:bg-yellow-600 hover:border-transparent"}
+                          >
+                            <button className='w-24'>Log In</button>
+                          </NavLink>
+                        </li>
+                        :
+                        <li>
+                          <button
+                            onClick={() => {
+                              setIsMenuOpen(false); 
+                              signOutUser();
+                              toast.warning("Sign Out Successfully!!!", {autoClose: 1500})
+                            }}
+                            className="border-2 border-red-500 bg-transparent py-1 w-24 rounded-md font-medium tracking-wide text-red-500 transition-colors duration-200 hover:text-white hover:bg-red-500 hover:border-transparent"
+                          >
+                            Sign Out
+                          </button>
+                        </li>
+                      }
+                      
+                      
                     </ul>
                   </nav>
                 </div>
