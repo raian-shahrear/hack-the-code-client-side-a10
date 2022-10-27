@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
-  const {createUser, updateUserInfo, verifyEmail} = useContext(UserContext);
+  const {createUser, updateUserInfo, verifyEmail, googleUser, githubUser, facebookUser} = useContext(UserContext);
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
   const [activeBtn, setActiveBtn] = useState(false);
@@ -55,7 +55,7 @@ const SignUp = () => {
       verifyUserEmail();
       setErrorMessage('');
       navigate('/');
-      toast.success("Account Registered Successfully!!!", {autoClose: 1500})
+      toast.success("Account has been registered successfully!!!", {autoClose: 1500})
     })
     .catch(err => {
       console.error(err);
@@ -91,6 +91,54 @@ const SignUp = () => {
     })
   }
 
+
+  // Google user
+  const handleGoogle = () => {
+    googleUser()
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      setErrorMessage('');
+      navigate('/');
+      toast.success("Account has been registered successfully through Google!!!", {autoClose: 1500});
+    })
+    .catch(err => {
+      console.error(err);
+      setErrorMessage(err.message);
+    })
+  } 
+  // Facebook user
+  const handleFacebook = () => {
+    facebookUser()
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      setErrorMessage('');
+      navigate('/');
+      toast.success("Account has been registered successfully through Facebook!!!", {autoClose: 1500});
+    })
+    .catch(err => {
+      console.error(err);
+      setErrorMessage(err.message);
+    })
+  } 
+  // GitHub user
+  const handleGitHub = () => {
+    githubUser()
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      setErrorMessage('');
+      navigate('/');
+      toast.success("Account has been registered successfully through GitHub!!!", {autoClose: 1500});
+    })
+    .catch(err => {
+      console.error(err);
+      setErrorMessage(err.message);
+    })
+  } 
+
+
   return (
     <div className='flex justify-center my-20'>
       <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100">
@@ -98,17 +146,17 @@ const SignUp = () => {
         <p className="text-sm text-center text-gray-400">Already have an account? Please <Link to="/login" rel="noopener noreferrer" className="text-yellow-500 hover:text-gray-100 hover:underline">Log In</Link>
         </p>
         <div className="my-6 space-y-4">
-          <button aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:ring-blue-500">
+          <button onClick={handleGoogle} aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:ring-blue-500">
             <FcGoogle className='text-lg'/>
             <p>Login with Google</p>
           </button>
-          <button aria-label="Login with GitHub" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:ring-blue-500">
+          <button onClick={handleGitHub} aria-label="Login with GitHub" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:ring-blue-500">
             <FaGithub className='text-lg'/>
             <p>Login with GitHub</p>
           </button>
-          <button aria-label="Login with Facebook" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:ring-blue-500">
+          <button onClick={handleFacebook} aria-label="Login with Facebook" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:ring-blue-500">
             <FaFacebookF className='text-lg text-blue-500'/>
-            <p>Login with Twitter</p>
+            <p>Login with Facebook</p>
           </button>
         </div>
         <div className="flex items-center w-full my-4">

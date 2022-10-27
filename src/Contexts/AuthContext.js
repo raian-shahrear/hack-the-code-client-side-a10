@@ -1,11 +1,14 @@
 import React, { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, signInWithPopup, updateProfile } from "firebase/auth";
 import app from '../Firebase/firebase.config'
 
 export const UserContext = createContext();
 const auth = getAuth(app);
 
 const AuthContext = ({children}) => {
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
   
   // Create a user account
   const createUser = (email, password) => {
@@ -25,8 +28,21 @@ const AuthContext = ({children}) => {
     return sendEmailVerification(auth.currentUser);
   }
 
+  // Google login/signUp
+  const googleUser = () => {
+    return signInWithPopup(auth, googleProvider);
+  }
+  // GitHub login/signUp
+  const githubUser = () => {
+    return signInWithPopup(auth, githubProvider);
+  }
+  // Facebook login/signUp
+  const facebookUser = () => {
+    return signInWithPopup(auth, facebookProvider);
+  }
 
-  const authInfo = {createUser, updateUserInfo, verifyEmail};
+
+  const authInfo = {createUser, updateUserInfo, verifyEmail, googleUser, githubUser, facebookUser};
 
   return (
     <div>
