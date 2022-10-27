@@ -100,7 +100,7 @@ const NavBar = () => {
                   <Link to="/user-profile" className='flex items-center gap-3 opacity-90 hover:opacity-100'>
                     {
                       <div className="tooltip tooltip-bottom" data-tip={user?.displayName && user?.displayName}>
-                        <>{user?.photoURL && <img src={user?.photoURL} alt="userImg" className='w-14 rounded-full' />}</>
+                        <>{user?.photoURL && <img src={user?.photoURL} alt="userImg" className='w-14 h-14 rounded-full' />}</>
                       </div>
                     }
                   </Link>

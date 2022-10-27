@@ -174,8 +174,8 @@ const SignUp = () => {
               <input type="text" name="name" id="uname" placeholder="first name / last name" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900" required />
             </div>
             <div className="space-y-2">
-              <label for="url" className="block text-sm">Image URL</label>
-              <input type="text" name="image" id="url" placeholder="image url" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900" required />
+              <label for="url" className="block text-sm">Photo URL</label>
+              <input type="text" name="image" id="url" placeholder="photo url" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900" required />
             </div>
             <div className="space-y-2">
               <label for="email" className="block text-sm">Email address</label>
