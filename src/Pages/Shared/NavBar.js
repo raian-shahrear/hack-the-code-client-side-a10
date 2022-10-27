@@ -24,14 +24,14 @@ const NavBar = () => {
             <li onClick={() => setDarkLight(!darkLight)} className='text-2xl text-white cursor-pointer'>
               {
                 darkLight ? 
-                <div className='flex items-center gap-2' title='Dark Mode'>
-                  <BsFillMoonFill className='text-yellow-100'/>
+                <div className='flex items-center gap-4' title='Dark Mode'>
                   <FaToggleOff/>
+                  <BsFillMoonFill className='text-yellow-100'/>
                 </div>
                 :
                 <div className='flex items-center gap-2' title='Light Mode'>
-                  <BsFillSunFill className='text-yellow-500'/>
                   <FaToggleOn/>
+                  <BsFillSunFill className='text-yellow-500'/>
                 </div>
               }
             </li>
@@ -127,14 +127,14 @@ const NavBar = () => {
                     <div onClick={() => setDarkLight(!darkLight)} className='text-2xl text-white cursor-pointer'>
                       {
                         darkLight ? 
-                        <div className='flex items-center gap-2' title='Dark Mode'>
-                          <BsFillMoonFill className='text-yellow-100'/>
+                        <div className='flex items-center gap-4' title='Dark Mode'>
                           <FaToggleOff/>
+                          <BsFillMoonFill className='text-yellow-100'/>
                         </div>
                         :
                         <div className='flex items-center gap-2' title='Light Mode'>
-                          <BsFillSunFill className='text-yellow-500'/>
                           <FaToggleOn/>
+                          <BsFillSunFill className='text-yellow-500'/>
                         </div>
                       }
                     </div>

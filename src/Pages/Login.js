@@ -10,12 +10,12 @@ const Login = () => {
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form className="space-y-6 ng-untouched ng-pristine ng-valid">
           <div className="space-y-1 text-sm">
-            <label for="uEmail" className="block text-gray-200">Email</label>
+            <label for="uEmail" className="block text-gray-200">Email address</label>
             <input type="email" name="email" id="uEmail" placeholder="valid email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900" />
           </div>
           <div className="space-y-1 text-sm">
             <label for="password" className="block text-gray-200">Password</label>
-            <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900" />
+            <input type="password" name="password" id="password" placeholder="******" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900" />
             <div className="flex justify-end text-xs text-gray-400">
               <p rel="noopener noreferrer" className='text-yellow-500 cursor-pointer hover:text-gray-100 hover:underline'>Forgot Password?</p>
             </div>
@@ -34,7 +34,7 @@ const Login = () => {
           <button aria-label="Log in with GitHub" className="p-3">
             <FaGithub/>
           </button>
-          <button aria-label="Log in with Facebook" className="p-3">
+          <button aria-label="Log in with Facebook" className="p-3 text-blue-500">
             <FaFacebookF/>
           </button>
         </div>
