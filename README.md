@@ -1,8 +1,8 @@
 # Hack The Code
 
-## `Live Website Link`:
+## [Live Website Link](https://hack-the-code-c69c1.web.app/):
 
-Please click on this link, [http://localhost:3000](http://localhost:3000) to visit `Hack The Code`.
+Please click on this link, [https://hack-the-code-c69c1.web.app/](https://hack-the-code-c69c1.web.app/) to visit `Hack The Code`.
 
 
 
