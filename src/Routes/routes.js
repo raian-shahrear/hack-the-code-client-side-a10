@@ -23,17 +23,17 @@ const routes = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        loader: () => fetch('http://localhost:5000/top-courses')
+        loader: () => fetch('https://hack-the-code.vercel.app/top-courses')
       },
       {
         path: '/home',
         element: <Home />,
-        loader: () => fetch('http://localhost:5000/top-courses')
+        loader: () => fetch('https://hack-the-code.vercel.app/top-courses')
       },
       {
         path: '/courses',
         element: <Courses />,
-        loader: () => fetch('http://localhost:5000/courses')
+        loader: () => fetch('https://hack-the-code.vercel.app/courses')
       },
       {
         path: '/login',
@@ -50,17 +50,17 @@ const routes = createBrowserRouter([
       {
         path: '/categories/courses/:id',
         element: <CoursesByCategory />,
-        loader: ({params}) => fetch(`http://localhost:5000/category/courses/${params.id}`)
+        loader: ({params}) => fetch(`https://hack-the-code.vercel.app/category/courses/${params.id}`)
       },
       {
         path: '/category/course-details/:id',
         element: <CourseDetails />,
-        loader: ({params}) => fetch(`http://localhost:5000/category/course-details/${params.id}`)
+        loader: ({params}) => fetch(`https://hack-the-code.vercel.app/category/course-details/${params.id}`)
       },
       {
         path: '/course/premium-access/:id',
         element: <PrivateRoutes><PremiumAccess /></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/category/course-details/${params.id}`)
+        loader: ({params}) => fetch(`https://hack-the-code.vercel.app/category/course-details/${params.id}`)
       },
       {
         path: '/user-profile',
