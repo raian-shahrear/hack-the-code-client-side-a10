@@ -72,7 +72,7 @@ const NavBar = () => {
               <NavLink
                 to="/login"
                 onClick={() => setIsMenuOpen(false)}
-                className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-green-500" : "border-2 border-green-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-green-500 transition-colors duration-200 hover:text-white hover:bg-green-500 hover:border-transparent"}
+                className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-yellow-600" : "border-2 border-sky-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-white hover:bg-yellow-600 hover:border-transparent"}
               >
                 <button className='w-24'>Log In</button>
               </NavLink>
@@ -196,7 +196,7 @@ const NavBar = () => {
                         <NavLink
                           to="/login"
                           onClick={() => setIsMenuOpen(false)}
-                          className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-green-500" : "border-2 border-green-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-green-500 transition-colors duration-200 hover:text-white hover:bg-green-500 hover:border-transparent"}
+                          className={({isActive}) => isActive ? "border-2 border-transparent py-1 rounded-md font-medium tracking-wide text-white bg-yellow-600" : "border-2 border-sky-500 bg-transparent py-1 rounded-md font-medium tracking-wide text-sky-500 transition-colors duration-200 hover:text-white hover:bg-yellow-600 hover:border-transparent"}
                         >
                           <button className='w-24'>Log In</button>
                         </NavLink>

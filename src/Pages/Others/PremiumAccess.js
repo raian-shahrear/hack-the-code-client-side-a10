@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PremiumAccess = () => {
   const courseDetails = useLoaderData();
   const {courseId, title, image, instructor, price} = courseDetails;
+
+  const handleCheckOut = () => {
+    toast.success('Checkout done successfully!!!', {autoClose: 1500});
+  }
   
   return (
     <div className='w-10/12 mx-auto my-24'>
@@ -57,7 +63,7 @@ const PremiumAccess = () => {
             </button>
           </Link>
           <Link to='/'>
-            <button type="button" className="px-6 py-2 border-2 rounded-md bg-yellow-500 text-gray-900 border-transparent font-semibold hover:border-yellow-500 hover:bg-transparent hover:text-yellow-500">
+            <button onClick={handleCheckOut} type="button" className="px-6 py-2 border-2 rounded-md bg-yellow-500 text-gray-900 border-transparent font-semibold hover:border-yellow-500 hover:bg-transparent hover:text-yellow-500">
             <span className="sr-only sm:not-sr-only">Continue to </span>Checkout
             </button>
           </Link>
