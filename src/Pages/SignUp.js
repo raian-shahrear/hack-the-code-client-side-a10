@@ -6,8 +6,10 @@ import { useContext } from 'react';
 import { UserContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../Hooks/useTitle';
 
 const SignUp = () => {
+  useTitle('Register')
   const {createUser, updateUserInfo, verifyEmail, googleUser, githubUser, facebookUser} = useContext(UserContext);
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
@@ -140,7 +142,7 @@ const SignUp = () => {
 
 
   return (
-    <div className='flex justify-center my-20'>
+    <div className='flex justify-center py-24'>
       <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100">
         <h2 className="mb-3 text-3xl font-semibold text-center">Register an account</h2>
         <p className="text-sm text-center text-gray-400">Already have an account? Please <Link to="/login" rel="noopener noreferrer" className="text-yellow-500 hover:text-gray-100 hover:underline">Log In</Link>
@@ -148,15 +150,15 @@ const SignUp = () => {
         <div className="my-6 space-y-4">
           <button onClick={handleGoogle} aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:ring-blue-500">
             <FcGoogle className='text-lg'/>
-            <p>Login with Google</p>
+            <p>Register with Google</p>
           </button>
           <button onClick={handleGitHub} aria-label="Login with GitHub" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:ring-blue-500">
             <FaGithub className='text-lg'/>
-            <p>Login with GitHub</p>
+            <p>Register with GitHub</p>
           </button>
           <button onClick={handleFacebook} aria-label="Login with Facebook" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:ring-blue-500">
             <FaFacebookF className='text-lg text-blue-500'/>
-            <p>Login with Facebook</p>
+            <p>Register with Facebook</p>
           </button>
         </div>
         <div className="flex items-center w-full my-4">
@@ -190,7 +192,7 @@ const SignUp = () => {
               <label for="terms" className="text-sm ml-2">Agree with our Term & Conditions?</label>
             </div>
           </div>
-          <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-blue-500 hover:bg-blue-400 text-gray-900" disabled = {!activeBtn} title={activeBtn? undefined : "Please check the terms & conditions box"} >Sign Up</button>
+          <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-blue-500 hover:bg-blue-400 disabled:bg-blue-500 text-gray-900" disabled = {!activeBtn} title={activeBtn? undefined : "Please check the terms & conditions box"} >Sign Up</button>
         </form>
       </div>
     </div>

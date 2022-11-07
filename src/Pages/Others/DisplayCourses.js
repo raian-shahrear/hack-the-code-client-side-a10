@@ -1,8 +1,10 @@
 import React from 'react';
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 
 const DisplayCourses = ({course, setState}) => {
+  useTitle('Category')
   const {image, title, details, price, ratings, categoryName, courseId} = course;
   setState(categoryName);
   

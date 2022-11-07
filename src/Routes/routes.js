@@ -12,6 +12,7 @@ import CourseDetails from '../Pages/Others/CourseDetails';
 import PremiumAccess from "../Pages/Others/PremiumAccess";
 import PrivateRoutes from "./PrivateRoutes";
 import UserProfile from "../Pages/Others/UserProfile";
+import Layout_1 from "../Layout/Layout_1";
 
 
 const routes = createBrowserRouter([
@@ -36,6 +37,28 @@ const routes = createBrowserRouter([
         loader: () => fetch('https://hack-the-code.vercel.app/courses')
       },
       {
+        path: '/categories/courses/:id',
+        element: <CoursesByCategory />,
+        loader: ({params}) => fetch(`https://hack-the-code.vercel.app/category/courses/${params.id}`)
+      },
+      {
+        path: '/category/course-details/:id',
+        element: <CourseDetails />,
+        loader: ({params}) => fetch(`https://hack-the-code.vercel.app/category/course-details/${params.id}`)
+      },
+    ]
+  },
+  {
+    path: '/',
+    element: <Layout_1 />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/course/premium-access/:id',
+        element: <PrivateRoutes><PremiumAccess /></PrivateRoutes>,
+        loader: ({params}) => fetch(`https://hack-the-code.vercel.app/category/course-details/${params.id}`)
+      },
+      {
         path: '/login',
         element: <Login />
       },
@@ -48,29 +71,14 @@ const routes = createBrowserRouter([
         element: <FAQ />
       },
       {
-        path: '/categories/courses/:id',
-        element: <CoursesByCategory />,
-        loader: ({params}) => fetch(`https://hack-the-code.vercel.app/category/courses/${params.id}`)
-      },
-      {
-        path: '/category/course-details/:id',
-        element: <CourseDetails />,
-        loader: ({params}) => fetch(`https://hack-the-code.vercel.app/category/course-details/${params.id}`)
-      },
-      {
-        path: '/course/premium-access/:id',
-        element: <PrivateRoutes><PremiumAccess /></PrivateRoutes>,
-        loader: ({params}) => fetch(`https://hack-the-code.vercel.app/category/course-details/${params.id}`)
-      },
-      {
         path: '/user-profile',
         element: <UserProfile />
-      }
+      },
+      {
+        path: '/blog',
+        element: <Blog />
+      },
     ]
-  },
-  {
-    path: '/blog',
-    element: <Blog />
   },
 ])
 

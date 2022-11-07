@@ -6,8 +6,10 @@ import { useContext } from 'react';
 import { UserContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from "../Hooks/useTitle";
 
 const Login = () => {
+  useTitle('Login');
   const {loginUser, resetPassword, googleUser, githubUser, facebookUser} = useContext(UserContext);
   const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState('');
@@ -100,7 +102,7 @@ const Login = () => {
   } 
 
   return (
-    <div className='flex justify-center my-20'>
+    <div className='flex justify-center py-24'>
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <div>

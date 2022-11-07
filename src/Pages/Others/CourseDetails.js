@@ -8,10 +8,12 @@ import { TbCertificate, TbWorld } from "react-icons/tb";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { BsBarChartLine } from "react-icons/bs";
 import { createRef } from 'react';
+import useTitle from '../../Hooks/useTitle';
 
 const ref = createRef();
 
 const CourseDetails = () => {
+  useTitle('Course Details')
   const detailsOfCourse = useLoaderData();
   const {courseId, title, courseOverview, details, difficulty, enrolled, image, instructor, language, price, ratings, totalHour} = detailsOfCourse;
   return (

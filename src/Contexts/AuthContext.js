@@ -12,7 +12,7 @@ const AuthContext = ({children}) => {
   const githubProvider = new GithubAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
   const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   
 
   // Create a user account

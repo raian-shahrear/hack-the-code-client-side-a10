@@ -3,8 +3,10 @@ import { useRef } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Contexts/AuthContext';
+import useTitle from '../../Hooks/useTitle';
 
 const UserProfile = () => {
+  useTitle('Profile');
   const {user} = useContext(UserContext);
   const nameRef = useRef(user?.displayName);
   const photoRef = useRef(user?.photoURL);
@@ -18,7 +20,7 @@ const UserProfile = () => {
 
   if(user && user.uid){
     return (
-      <div className='flex justify-center my-20'>
+      <div className='flex justify-center py-24'>
         <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100">
   
         <div className="flex flex-col justify-center max-w-full p-6 ">

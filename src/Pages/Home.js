@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../Hooks/useTitle';
 import headerImg from '../Resources/Header.jpg'
 import DisplayCourses from './Others/DisplayCourses';
 
 const Home = () => {
+  useTitle('Home')
   const topCourses = useLoaderData();
   const [state, setState] = useState('');
   return (

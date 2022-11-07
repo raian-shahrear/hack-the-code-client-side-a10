@@ -2,8 +2,10 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../Hooks/useTitle';
 
 const PremiumAccess = () => {
+  useTitle('Premium Course')
   const courseDetails = useLoaderData();
   const {courseId, title, image, instructor, price} = courseDetails;
 
@@ -12,7 +14,7 @@ const PremiumAccess = () => {
   }
   
   return (
-    <div className='w-10/12 mx-auto my-24'>
+    <div className='w-10/12 mx-auto py-24'>
       <div className="flex flex-col max-w-full p-6 space-y-4 sm:p-10 bg-gray-900 text-gray-100">
         <h2 className="text-2xl font-semibold">Your cart</h2>
         <ul className="flex flex-col divide-y divide-gray-700">

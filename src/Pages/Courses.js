@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../Hooks/useTitle';
 import DisplayCourses from './Others/DisplayCourses';
 
 const Courses = () => {
   const courses = useLoaderData();
   const [state, setState] = useState();
+  useTitle('Courses');
 
   return (
     <div>
