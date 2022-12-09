@@ -7,11 +7,11 @@ Please click on this link, [https://hack-the-code-c69c1.web.app/](https://hack-t
 
 
 ## `Some Features`:
-
 ### 1. TailwindCSS framework and daisyUI component library has been used to design UI.
-### 2. The website has been responsive for all type of device.
-### 3. React.js Library has been used for building UI.
-### 4. For navigation, React Router has been used.
-### 5. To create server, Express.js has been used.
-### 6. For authenticating user, Firebase has been used.
-### 7. The server and the Website have been hosted to Vercel and Firebase respectively.
+### 2. The website has been responsive for all type of devices.
+### 3. Two different layouts and Private routes have been used.
+### 4. React.js Library has been used for building UI.
+### 5. For navigation, React Router has been used.
+### 6. The database has been created and loaded through the Express.js server.
+### 7. User Authentication by Firebase and social login has been implemented.
+### 8. The server and the Website have been hosted to Vercel and Firebase respectively.

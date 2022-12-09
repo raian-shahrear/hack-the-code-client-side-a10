@@ -55,6 +55,7 @@ const AuthContext = ({children}) => {
   }
   // GitHub login/signUp
   const githubUser = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   }
   // Facebook login/signUp
