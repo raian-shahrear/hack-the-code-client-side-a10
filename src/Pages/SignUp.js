@@ -37,23 +37,28 @@ const SignUp = () => {
     // using Regex for email
     if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email)) {
       setErrorMessage("Please set email in right format");
+      setIsLoading(false);
       return;
     }
     // using Regex for password
     if (!/^(?=.*[A-Z])/.test(password)) {
       setErrorMessage("Password should have at least one capital letter");
+      setIsLoading(false);
       return;
     }
     if (!/^(?=.*\d)/.test(password)) {
       setErrorMessage("Password should have at least one digit");
+      setIsLoading(false);
       return;
     }
     if (!/^(?=.*[!#$%&@? "])/.test(password)) {
       setErrorMessage("Password should have at least one special characters");
+      setIsLoading(false);
       return;
     }
     if (!/^(?=.{6,})/.test(password)) {
       setErrorMessage("Password should have at least 6 characters");
+      setIsLoading(false);
       return;
     }
     setErrorMessage("");
@@ -79,10 +84,6 @@ const SignUp = () => {
               setErrorMessage("");
               signOutUser();
               navigate("/login");
-              toast.success(
-                "Account has been registered successfully! Please login again!",
-                { autoClose: 2000 }
-              );
             })
             .catch((err) => {
               console.error(err);
@@ -112,10 +113,13 @@ const SignUp = () => {
   const verifyUserEmail = () => {
     verifyEmail()
       .then(() => {
-        toast.success(
-          "Please check your email for verification!",
-          { autoClose: 1500 }
-        );
+        const agree = window.alert("Please check your email for verification!")
+        if(!agree){
+          toast.success(
+            "Account has been registered successfully! Please login again!",
+            { autoClose: 2000 }
+          );
+        }
         setErrorMessage("");
       })
       .catch((err) => {
