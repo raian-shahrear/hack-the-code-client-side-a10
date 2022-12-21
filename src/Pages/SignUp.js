@@ -316,6 +316,7 @@ const SignUp = () => {
                 name="terms"
                 id="terms"
                 value="agree-terms"
+                required
               />
               <label for="terms" className="text-sm ml-2">
                 Agree with our Term & Conditions?
@@ -325,7 +326,7 @@ const SignUp = () => {
           <div className="relative">
             <button
               type="submit"
-              className="w-full px-8 py-3 font-semibold rounded-md bg-blue-500 hover:bg-blue-400 disabled:bg-blue-500 text-gray-900"
+              className="w-full px-8 py-3 font-semibold rounded-md bg-blue-500 hover:bg-blue-400 text-gray-900"
             >
               Sign Up
             </button>
