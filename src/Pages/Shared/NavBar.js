@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { FaSnowflake, FaToggleOff, FaToggleOn } from "react-icons/fa";
-import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import { FaSnowflake } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom'
 import { useContext } from 'react';
 import { UserContext } from '../../Contexts/AuthContext';
@@ -9,12 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [darkLight, setDarkLight] = useState(true);
   const {user, signOutUser} = useContext(UserContext);
 
   return (
     <div className="bg-gray-900">
-      <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl px-4 md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <a
             href="/"
@@ -26,20 +24,6 @@ const NavBar = () => {
             </span>
           </a>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-            <li onClick={() => setDarkLight(!darkLight)} className='text-2xl text-white cursor-pointer'>
-              {
-                darkLight ? 
-                <div className='flex items-center gap-4' title='Dark Mode'>
-                  <FaToggleOff/>
-                  <BsFillMoonFill className='text-yellow-100'/>
-                </div>
-                :
-                <div className='flex items-center gap-2' title='Light Mode'>
-                  <FaToggleOn/>
-                  <BsFillSunFill className='text-yellow-500'/>
-                </div>
-              }
-            </li>
             <li>
               <NavLink
                 to="/home"
@@ -146,20 +130,7 @@ const NavBar = () => {
                         </span>
                       </a>
                     </div>
-                    <div onClick={() => setDarkLight(!darkLight)} className='text-2xl text-white cursor-pointer'>
-                      {
-                        darkLight ? 
-                        <div className='flex items-center gap-4' title='Dark Mode'>
-                          <FaToggleOff/>
-                          <BsFillMoonFill className='text-yellow-100'/>
-                        </div>
-                        :
-                        <div className='flex items-center gap-2' title='Light Mode'>
-                          <FaToggleOn/>
-                          <BsFillSunFill className='text-yellow-500'/>
-                        </div>
-                      }
-                    </div>
+                  
                     <div>
                       <button
                         aria-label="Close Menu"

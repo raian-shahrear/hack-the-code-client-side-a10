@@ -62,7 +62,7 @@ const CourseDetails = () => {
               </div>
             </div>
             <div className='col-span-4'>
-              <img className='h-auto w-full lg:h-96 lg:mt-10 rounded-md' src={image} alt="course-img" />
+              <img className='h-auto w-full lg:h-96 lg:mt-10 rounded-md bg-gray-200' src={image} alt="course-img" />
             </div>
           </section>
         </div>

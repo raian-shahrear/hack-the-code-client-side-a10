@@ -5,8 +5,8 @@ const FAQ = () => {
   useTitle('FAQ');
 
   return (
-    <div className="py-24">
-      <div className="w-10/12 mx-auto bg-gray-800">
+    <div className="py-24 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl px-4 md:px-24 lg:px-8">
+      <div className="bg-gray-800">
         <section className=" text-gray-100">
           <div className="container flex flex-col justify-center items-center p-4 mx-auto md:p-8">
             <h1 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">

@@ -22,7 +22,7 @@ const Blog = () => {
         </a>
         </div>
       </header>
-      <section className='py-24 w-8/12 mx-auto'>
+      <section className='py-24 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl px-4 md:px-24 lg:px-8'>
         <h1 className='text-4xl font-semibold bg-gray-900 p-4 text-gray-200 text-center rounded-md mb-10'>Question And Answer</h1>
         <div className='mb-6 text-justify'>
           <h2 className='text-2xl font-semibold mb-2 text-gray-100'>Q1. What is cors?</h2>
