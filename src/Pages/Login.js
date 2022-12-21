@@ -172,7 +172,7 @@ const Login = () => {
               Log In
             </button>
             {isLoading && (
-              <div className="absolute bottom-2 left-24 w-8 h-8 border-4 border-dashed rounded-full animate-spin border-gray-200"></div>
+              <div className="absolute bottom-2 left-24 w-8 h-8 border-2 border-dashed rounded-full animate-spin border-gray-200"></div>
             )}
           </div>
         </form>

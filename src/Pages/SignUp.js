@@ -21,7 +21,6 @@ const SignUp = () => {
   } = useContext(UserContext);
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-  const [activeBtn, setActiveBtn] = useState(false);
   const [isPassVisible, setISPassVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -297,11 +296,12 @@ const SignUp = () => {
                   className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900"
                   required
                 />
-                <div onClick={() => setISPassVisible(!isPassVisible)} className="absolute bottom-3.5 right-2 text-lg text-gray-900">
-                {
-                  isPassVisible ? <FaEye/> : <FaEyeSlash/>
-                } 
-              </div>
+                <div
+                  onClick={() => setISPassVisible(!isPassVisible)}
+                  className="absolute bottom-3.5 right-2 text-lg text-gray-900"
+                >
+                  {isPassVisible ? <FaEye /> : <FaEyeSlash />}
+                </div>
               </div>
               <p className="text-gray-500 font-semibold">
                 <small>
@@ -312,11 +312,10 @@ const SignUp = () => {
             </div>
             <div>
               <input
-                onChange={(e) => setActiveBtn(!activeBtn)}
                 type="checkbox"
                 name="terms"
                 id="terms"
-                value={activeBtn}
+                value="agree-terms"
               />
               <label for="terms" className="text-sm ml-2">
                 Agree with our Term & Conditions?
@@ -327,17 +326,11 @@ const SignUp = () => {
             <button
               type="submit"
               className="w-full px-8 py-3 font-semibold rounded-md bg-blue-500 hover:bg-blue-400 disabled:bg-blue-500 text-gray-900"
-              disabled={!activeBtn}
-              title={
-                activeBtn
-                  ? undefined
-                  : "Please check the terms & conditions box"
-              }
             >
               Sign Up
             </button>
             {isLoading && (
-              <div className="absolute bottom-2 left-24 w-8 h-8 border-4 border-dashed rounded-full animate-spin border-gray-200"></div>
+              <div className="absolute bottom-2 left-24 w-8 h-8 border-2 border-dashed rounded-full animate-spin border-gray-200"></div>
             )}
           </div>
         </form>
