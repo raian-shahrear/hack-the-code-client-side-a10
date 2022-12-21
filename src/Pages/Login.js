@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebookF, FaGithub } from "react-icons/fa";
+import { FaFacebookF, FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext } from "react";
 import { UserContext } from "../Contexts/AuthContext";
 import { toast } from "react-toastify";
@@ -14,6 +14,7 @@ const Login = () => {
     useContext(UserContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isPassVisible, setISPassVisible] = useState(false);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -142,13 +143,20 @@ const Login = () => {
             <label for="password" className="block text-gray-200">
               Password <span className="text-error">*</span>
             </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="******"
-              className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900"
-            />
+            <div className="relative">
+              <input
+                type={isPassVisible ? "text" : "password"}
+                name="password"
+                id="password"
+                placeholder="******"
+                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900"
+              />
+              <div onClick={() => setISPassVisible(!isPassVisible)} className="absolute bottom-3 right-2 text-lg text-gray-900">
+                {
+                  isPassVisible ? <FaEye/> : <FaEyeSlash/>
+                } 
+              </div>
+            </div>
             <div className="flex justify-end text-xs text-gray-400">
               <p
                 onClick={handlePasswordReset}
@@ -163,9 +171,9 @@ const Login = () => {
             <button className="block w-full p-3 text-center font-semibold rounded-md text-gray-900 bg-blue-500 hover:bg-blue-400">
               Log In
             </button>
-            { isLoading &&
+            {isLoading && (
               <div className="absolute bottom-2 left-24 w-8 h-8 border-4 border-dashed rounded-full animate-spin border-gray-200"></div>
-            }
+            )}
           </div>
         </form>
         <div className="flex items-center pt-4 space-x-1">

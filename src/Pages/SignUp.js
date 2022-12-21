@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebookF, FaGithub } from "react-icons/fa";
+import { FaFacebookF, FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext } from "react";
 import { UserContext } from "../Contexts/AuthContext";
 import { toast } from "react-toastify";
@@ -22,6 +22,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [activeBtn, setActiveBtn] = useState(false);
+  const [isPassVisible, setISPassVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   // Create a user account
@@ -113,8 +114,8 @@ const SignUp = () => {
   const verifyUserEmail = () => {
     verifyEmail()
       .then(() => {
-        const agree = window.alert("Please check your email for verification!")
-        if(!agree){
+        const agree = window.alert("Please check your email for verification!");
+        if (!agree) {
           toast.success(
             "Account has been registered successfully! Please login again!",
             { autoClose: 2000 }
@@ -287,14 +288,21 @@ const SignUp = () => {
               <label for="password" className="block text-sm">
                 Password <span className="text-error">*</span>
               </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="******"
-                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={isPassVisible ? "text" : "password"}
+                  name="password"
+                  id="password"
+                  placeholder="******"
+                  className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-gray-900 focus:border-blue-900"
+                  required
+                />
+                <div onClick={() => setISPassVisible(!isPassVisible)} className="absolute bottom-3.5 right-2 text-lg text-gray-900">
+                {
+                  isPassVisible ? <FaEye/> : <FaEyeSlash/>
+                } 
+              </div>
+              </div>
               <p className="text-gray-500 font-semibold">
                 <small>
                   [password: at least 1 uppercase, 1 number, 1 special character
@@ -328,9 +336,9 @@ const SignUp = () => {
             >
               Sign Up
             </button>
-            { isLoading &&
+            {isLoading && (
               <div className="absolute bottom-2 left-24 w-8 h-8 border-4 border-dashed rounded-full animate-spin border-gray-200"></div>
-            }
+            )}
           </div>
         </form>
       </div>
